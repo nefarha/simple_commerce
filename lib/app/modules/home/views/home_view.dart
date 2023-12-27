@@ -26,7 +26,32 @@ class HomeView extends GetView<HomeController> {
       body: controller.obx(
         (state) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
-          child: buildProductView(),
+          child: Column(
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    ...controller.category.map(
+                      (data) => Card(
+                        elevation: 3,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(data),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: buildProductView(),
+              ),
+            ],
+          ),
         ),
       ),
     );

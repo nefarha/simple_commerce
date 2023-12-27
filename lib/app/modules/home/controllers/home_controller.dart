@@ -8,11 +8,16 @@ class HomeController extends GetxController with StateMixin<List<Product>> {
   final scrollController = ScrollController();
 
   RxList<Product> daftarProduk = RxList.empty();
+  RxList category = RxList.empty();
 
   var limit = 10.obs;
 
   @override
   void onInit() {
+    apiService.getCategories().then((value) {
+      category.value = value;
+    });
+
     apiService.readDataLimit(limit: limit.value).then((value) {
       daftarProduk.value = value;
       change(value, status: RxStatus.success());
