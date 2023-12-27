@@ -3,6 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:simple_ecommerce/app/data/reusable/reusable_item.dart';
 import 'package:simple_ecommerce/app/modules/home/controllers/custom_search.dart';
+import 'package:simple_ecommerce/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -85,7 +86,12 @@ class HomeView extends GetView<HomeController> {
         itemCount: controller.daftarProduk.length,
         itemBuilder: (context, index) {
           var model = controller.daftarProduk[index];
-          return cardProduct(model: model);
+          return cardProduct(
+            model: model,
+            onTap: () {
+              Get.toNamed(Routes.DETAIL_PRODUK, arguments: model);
+            },
+          );
         },
       ),
     );

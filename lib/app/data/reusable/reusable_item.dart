@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:simple_ecommerce/app/data/model/product_model.dart';
 
+const greyColor = Colors.grey;
+
 TextStyle titleStyle() {
   return const TextStyle(
     fontSize: 15,
@@ -79,5 +81,12 @@ buildLoading() {
       child: CircularProgressIndicator(),
     ),
     barrierDismissible: false,
+  );
+}
+
+TextStyle headerStyle() {
+  return const TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 20,
   );
 }
