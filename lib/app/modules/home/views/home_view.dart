@@ -14,7 +14,9 @@ class HomeView extends GetView<HomeController> {
         title: const Text('Home Page'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showSearch(context: context, delegate: CustomSearchButton());
+            },
             icon: const Icon(Icons.search),
           ),
         ],

@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:simple_ecommerce/app/data/model/product_model.dart';
 
@@ -69,4 +70,14 @@ Widget cardProduct({required Product model, void Function()? onTap}) {
 String moneyFormat({required num money}) {
   return NumberFormat.simpleCurrency(locale: "en_US", decimalDigits: 0)
       .format(money);
+}
+
+buildLoading() {
+  Get.defaultDialog(
+    title: 'Loading',
+    content: const Center(
+      child: CircularProgressIndicator(),
+    ),
+    barrierDismissible: false,
+  );
 }
