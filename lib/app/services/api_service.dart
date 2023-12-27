@@ -42,4 +42,16 @@ class ApiServices {
 
     return daftarProduk;
   }
+
+  Future<List<Product>> searchProductByCategories(
+      {required String categories}) async {
+    var url = '$baseUrl/category/$categories';
+    var response = await dio.get(url);
+
+    var daftarProduk = (response.data['products'] as List)
+        .map((e) => Product.fromMap(e))
+        .toList();
+
+    return daftarProduk;
+  }
 }

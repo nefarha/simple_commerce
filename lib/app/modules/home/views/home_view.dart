@@ -33,11 +33,28 @@ class HomeView extends GetView<HomeController> {
                 child: Row(
                   children: [
                     ...controller.category.map(
-                      (data) => Card(
-                        elevation: 3,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(data),
+                      (data) => Obx(
+                        () => GestureDetector(
+                          onTap: () async {
+                            await controller.pickCategory(category: data);
+                          },
+                          child: Card(
+                            color: controller.selectedCategory.value == data
+                                ? Colors.orange
+                                : null,
+                            elevation: 3,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                data,
+                                style: TextStyle(
+                                    color: controller.selectedCategory.value ==
+                                            data
+                                        ? Colors.white
+                                        : null),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
