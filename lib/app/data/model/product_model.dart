@@ -14,7 +14,7 @@ class Product {
   String brand;
   String category;
   String thumbnail;
-  List<String> images;
+  List images;
   Product({
     required this.id,
     required this.title,
@@ -85,7 +85,7 @@ class Product {
       brand: map['brand'] as String,
       category: map['category'] as String,
       thumbnail: map['thumbnail'] as String,
-      images: List<String>.from((map['images'] as List<String>)),
+      images: map['images'],
     );
   }
 
