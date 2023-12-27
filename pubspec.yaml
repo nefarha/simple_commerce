@@ -14,11 +14,21 @@ dependencies:
   cached_network_image: 3.3.0
   flutter: 
     sdk: flutter
+  flutter_native_splash : any
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
   flutter_test: 
     sdk: flutter
+  
+
+flutter_native_splash:
+  android: true
+  background_image: assets/bg.jpg
+  image: assets/flutter_logo.png
+
+  
+  color: "#02a895"
 
 flutter: 
   uses-material-design: true
