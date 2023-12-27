@@ -33,4 +33,13 @@ class ApiServices {
 
     return daftarProduk;
   }
+
+  Future<List<String>> getCategories({required String query}) async {
+    var url = '$baseUrl/products/categories';
+    var response = await dio.get(url);
+
+    var daftarProduk = response.data;
+
+    return daftarProduk;
+  }
 }

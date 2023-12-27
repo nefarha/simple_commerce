@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:simple_ecommerce/app/data/reusable/reusable_item.dart';
+import 'package:simple_ecommerce/app/modules/home/controllers/custom_search.dart';
 
 import '../controllers/home_controller.dart';
 
