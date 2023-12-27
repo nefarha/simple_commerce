@@ -22,4 +22,15 @@ class ApiServices {
 
     return daftarProduk;
   }
+
+  Future<List<Product>> searchProduct({required String query}) async {
+    var url = '$baseUrl/search?q=$query';
+    var response = await dio.get(url);
+
+    var daftarProduk = (response.data['products'] as List)
+        .map((e) => Product.fromMap(e))
+        .toList();
+
+    return daftarProduk;
+  }
 }
