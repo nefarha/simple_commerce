@@ -7,9 +7,9 @@ class Product {
   int id;
   String title;
   String description;
-  int price;
-  double discountPercentage;
-  double rating;
+  num price;
+  num discountPercentage;
+  num rating;
   int stock;
   String brand;
   String category;
@@ -33,14 +33,14 @@ class Product {
     int? id,
     String? title,
     String? description,
-    int? price,
-    double? discountPercentage,
-    double? rating,
+    num? price,
+    num? discountPercentage,
+    num? rating,
     int? stock,
     String? brand,
     String? category,
     String? thumbnail,
-    List<String>? images,
+    List? images,
   }) {
     return Product(
       id: id ?? this.id,
@@ -78,14 +78,14 @@ class Product {
       id: map['id'] as int,
       title: map['title'] as String,
       description: map['description'] as String,
-      price: map['price'] as int,
-      discountPercentage: map['discountPercentage'] as double,
-      rating: map['rating'] as double,
+      price: map['price'] as num,
+      discountPercentage: map['discountPercentage'] as num,
+      rating: map['rating'] as num,
       stock: map['stock'] as int,
       brand: map['brand'] as String,
       category: map['category'] as String,
       thumbnail: map['thumbnail'] as String,
-      images: map['images'],
+      images: List.from((map['images'] as List)),
     );
   }
 
