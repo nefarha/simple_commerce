@@ -9,7 +9,28 @@ class HomeController extends GetxController with StateMixin<List<Product>> {
   final scrollController = ScrollController();
 
   RxList<Product> daftarProduk = RxList.empty();
-  RxList category = RxList.empty();
+  List<String> category = [
+    "smartphones",
+    "laptops",
+    "fragrances",
+    "skincare",
+    "groceries",
+    "home-decoration",
+    "furniture",
+    "tops",
+    "womens-dresses",
+    "womens-shoes",
+    "mens-shirts",
+    "mens-shoes",
+    "mens-watches",
+    "womens-watches",
+    "womens-bags",
+    "womens-jewellery",
+    "sunglasses",
+    "automotive",
+    "motorcycle",
+    "lighting"
+  ];
 
   var selectedCategory = Rxn<String>();
   var limit = 10.obs;
@@ -33,10 +54,6 @@ class HomeController extends GetxController with StateMixin<List<Product>> {
 
   @override
   void onInit() {
-    apiService.getCategories().then((value) {
-      category.value = value;
-    });
-
     apiService.readDataLimit(limit: limit.value).then((value) {
       daftarProduk.value = value;
       change(value, status: RxStatus.success());
