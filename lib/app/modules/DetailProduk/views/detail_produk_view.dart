@@ -37,22 +37,28 @@ class DetailProdukView extends GetView<DetailProdukController> {
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         physics: const PageScrollPhysics(),
-        child: Row(
-          children: List.generate(
-            4,
-            (index) => Container(
-              height: Get.height,
-              width: Get.width,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: CachedNetworkImageProvider(
-                    controller.dataProduk.images[index],
+        child: controller.dataProduk.images.isNotEmpty
+            ? Row(
+                children: List.generate(
+                  controller.dataProduk.images.length,
+                  (index) => Container(
+                    height: Get.height,
+                    width: Get.width,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: CachedNetworkImageProvider(
+                          controller.dataProduk.images[index],
+                        ),
+                      ),
+                    ),
                   ),
                 ),
+              )
+            : Container(
+                height: Get.height,
+                width: Get.width,
+                color: Colors.blue,
               ),
-            ),
-          ),
-        ),
       ),
     );
   }
